@@ -289,4 +289,4 @@ def file_from(word):
         return "invalid input"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
