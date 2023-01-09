@@ -1,0 +1,176 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    height: 100%;
+    background-image: linear-gradient( 109.6deg,  rgba(218,185,252,1) 11.2%, rgba(125,89,252,1) 91.1% );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+
+
+header {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Arial', sans-serif;
+    /* move the h1 to the top left with even spaces on top and left */
+    position: absolute;
+    top: 0;
+    left: 2%;
+
+    /* make the letters overlap */
+    letter-spacing: -8px;
+    font-weight: 600px;
+    color: whitesmoke;
+    /* add a shadow on the word */
+}
+
+nav ul {
+    list-style: none;
+    margin-right: 0;
+    padding: 0;
+    display: flex;
+    /* move the ul to the right */
+    position: fixed;
+    right: 0;
+    top: 2%;
+    right: 3%;
+
+    
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav a:hover {
+    color: #ccc;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+label {
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+  
+  .dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .services-menu-item {
+    position: relative;
+  }
+  
+ .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.services-menu-item:hover .dropdown-menu {
+  display: block;
+}
+
+/* ----------------FIXED HEADER CSS ABOVE------------------ */
+main {
+    font-family: 'Open Sans', sans-serif;
+    height: 50%;
+    
+    justify-content: center;
+    /* move the box down to the center of the screen */
+    z-index: -2;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    align-items: normal;
+    transform: translate(-50%, -50%);
+    /* rounded edges */
+
+    
+  }
+.faq {
+    border: 1px solid #ccc;  /* Add a border around the FAQ container */
+    margin-bottom: 5px;  /* Add some space between each FAQ */
+    padding: 5px;  /* Add some padding to the FAQ container */
+  }
+  
+  .faq-question {
+    font-size: 12px;  /* Increase the font size of the question */
+    font-weight: bold;  /* Make the question bold */
+    cursor: pointer;  /* Add a pointer cursor to the question to indicate it is clickable */
+    color: white;
+    width: 20vh;
+  }
+  
+  .faq-question:hover,  /* Style the question when hovering over it */
+  .faq-question:focus {
+    color: white;  /* Change the text color of the question */
+  }
+  
+  .faq-question.active {
+    color: white;  /* Change the text color of the question when the answer is visible */
+  }
+  
+  .faq-answer {
+    font-size: 8px;
+    display: none;
+    margin-top: 5px;
+    transition: all 2s ease-in-out;  /* Add a transition */
+  }
+  
+  .faq-answer.active {
+    display: block;  /* Make the answer visible */
+  }
+  
+  
+  .faq-container {
+    display: fixed;  /* Display the FAQs as a flex container */
+    justify-content: center;  /* Center the FAQs horizontally within their parent container */
+  }
+  

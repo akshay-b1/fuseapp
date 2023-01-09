@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact 3D Printing Website</title>
+    <link rel="stylesheet" type="text/css" href="static/FAQ.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <a href="/home"><h1>Fuse</h1></a>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li class="services-menu-item">
+                    <a href="#">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/text2image">Text to 3D</a></li>
+                        <li><a href="/picTo3D">Image to 3D</a></li>
+                        <li><a href="/prototyping">Prototyping</a></li>
+                        <li><a href="/pdesign">Product Design</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/market">Marketplace</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/FAQ">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="faq">
+        <h3 class="faq-question">Question 1</h3>
+        <div class="faq-answer">
+          <p>Answer to question 1</p>
+        </div>
+      </div>
+      
+      <div class="faq">
+        <h3 class="faq-question">Question 2</h3>
+        <div class="faq-answer">
+          <p>Answer to question 2</p>
+        </div>
+      </div>
+      
+      <div class="faq">
+        <h3 class="faq-question">Question 3</h3>
+        <div class="faq-answer">
+          <p>Answer to question 3</p>
+        </div>
+      </div>
+    </main>
+      <!-- JavaScript to toggle the 'active' class on the questions and answers -->
+<script>
+    // Select all FAQ questions
+    const questions = document.querySelectorAll('.faq-question');
+  
+    // Add a click event listener to each FAQ question
+    questions.forEach(question => {
+      question.addEventListener('click', () => {
+        // Toggle the 'active' class on the question and corresponding answer
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+      });
+    });
+  </script>
+    <footer>
+        <p>Copyright © 2023 - Fuse3D™</p>
+    </footer>
+</body>
+</html>
