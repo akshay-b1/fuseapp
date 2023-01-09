@@ -63,10 +63,84 @@ def text2image():
     else:
         fileName = ""
     return render_template('text2image.html', fileName=fileName)
+@app.route("/text2image?word=<word>")
+def future():
+    word = request.args.get("word", "")
+    if word:
+        fileName = file_from(word)
+    else:
+        fileName = ""
+    return render_template('text2image.html', fileName=fileName)
+
 
 def file_from(word):
     """Convert Celsius to Fahrenheit degrees."""
     try:
+        import cockroachdb
+        import psycopg2
+        import io
+
+        # Connect to the cockroach database.
+
+        conn = psycopg2.connect(
+            dbname='fuse-app-4550.files',
+            user='akshay',
+            password='fvjwTAErIHY3bVVSeWrLjA',
+            host= 'fuse-app-4550.6wr.cockroachlabs.cloud',
+            port=26257,
+            sslmode = 'require',
+        )
+        print("connected")
+        query = f"SELECT * FROM words"
+        print('got word')
+
+    # Execute the insert query
+        cursor = conn.cursor()
+        cursor.execute(query)
+        
+        # Fetch the results
+        results = cursor.fetchall()
+        entered = False
+        temp = []
+        for row in results:
+            name = row
+            temp.append(name)
+            entered = True
+        if not entered:
+            query = f"INSERT INTO words (word) VALUES ('{word + str(0)}')"
+            word = word+str(0)
+            # Execute the search query
+            cursor = conn.cursor()
+            cursor.execute(query)
+        else:
+            enteredAgain = False
+            for i in temp:
+                war = i[1]
+                if war[:len(i[1])-1] == word:
+                    enteredAgain = True
+                    name = i[1]
+                    print(name)
+                    break
+            if enteredAgain:
+                word = word+str(int(name[-1])+1)
+                query = f"INSERT INTO words (word) VALUES ('{word}')"
+                # Execute the search query
+                cursor = conn.cursor()
+                cursor.execute(query)
+            else:
+                query = f"INSERT INTO words (word) VALUES ('{word + str(0)}')"
+                word = word+str(0)
+                # Execute the search query
+                cursor = conn.cursor()
+                cursor.execute(query)
+            
+            
+
+        conn.commit()
+
+        
+
+
         import torch
         from tqdm.auto import tqdm
         print('importing models...')
@@ -114,12 +188,11 @@ def file_from(word):
 
         realPrompt = prompt
         realPrompt = realPrompt.replace(' ', '_')
-        print(realPrompt)
+        #print(realPrompt)
         # Produce a sample from the model.
         samples = None
         for x in tqdm(sampler.sample_batch_progressive(batch_size=1, model_kwargs=dict(texts=[prompt]))):
             samples = x
-            break
         print('sampled')
         # Plot the sample.
 
@@ -151,21 +224,7 @@ def file_from(word):
             progress=True,
         )
 
-        import cockroachdb
-        import psycopg2
-        import io
-
-        # Connect to the cockroach database.
-
-        conn = psycopg2.connect(
-            dbname='fuse-app-4550.files',
-            user='akshay',
-            password='fvjwTAErIHY3bVVSeWrLjA',
-            host= 'fuse-app-4550.6wr.cockroachlabs.cloud',
-            port=26257,
-            sslmode = 'require',
-        )
-
+       
         cursor = conn.cursor()
 
         # Use the cursor to execute a CREATE TABLE statement
@@ -189,7 +248,7 @@ def file_from(word):
 
         # Use the cursor to execute an INSERT statement to store the binary object in the database
         cursor.execute(f"INSERT INTO {realPrompt}files (name, data) VALUES (%s, %s)", (realPrompt+'.ply', binary_data))
-        print('inserted')
+        #print('inserted')
 
         # Commit the transaction
         conn.commit()
@@ -239,7 +298,7 @@ def file_from(word):
 
         # Convert the memory view to a bytes object
         stl_bytes = bytes(stl_file)
-        print(stl_bytes)
+        #print(stl_bytes)
 
         # Create a temporary file and write the stl_bytes object to it
         with tempfile.NamedTemporaryFile(mode='w+b', suffix='.stl', delete=False) as fp:
@@ -250,7 +309,7 @@ def file_from(word):
 
         vertices = mesh.vectors
 
-        print((vertices))
+        #print((vertices))
         image = ''
         # Write the Gcode header
         image += ('G28\n')  # Home all axes

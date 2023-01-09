@@ -29,42 +29,79 @@
         </nav>
     </header>
     <main>
-    <div class="faq">
-        <h3 class="faq-question">Question 1</h3>
-        <div class="faq-answer">
-          <p>Answer to question 1</p>
-        </div>
+      <button class="accordion">Section 1</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
       </div>
       
-      <div class="faq">
-        <h3 class="faq-question">Question 2</h3>
-        <div class="faq-answer">
-          <p>Answer to question 2</p>
-        </div>
+      <button class="accordion">Section 2</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
       </div>
       
-      <div class="faq">
-        <h3 class="faq-question">Question 3</h3>
-        <div class="faq-answer">
-          <p>Answer to question 3</p>
-        </div>
+      <button class="accordion">Section 3</button>
+      <div class="panel">
+        <p>Lorem ipsum...</p>
       </div>
     </main>
       <!-- JavaScript to toggle the 'active' class on the questions and answers -->
-<script>
-    // Select all FAQ questions
-    const questions = document.querySelectorAll('.faq-question');
-  
-    // Add a click event listener to each FAQ question
-    questions.forEach(question => {
-      question.addEventListener('click', () => {
-        // Toggle the 'active' class on the question and corresponding answer
-        question.classList.toggle('active');
-        const answer = question.nextElementSibling;
-        answer.classList.toggle('active');
-      });
-    });
-  </script>
+      <style>
+        .panel {
+          padding: 0 18px;
+          background-color: white;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+        </style>
+        
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          });
+        }
+        </script>
     <footer>
         <p>Copyright © 2023 - Fuse3D™</p>
     </footer>
