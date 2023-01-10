@@ -9,6 +9,7 @@ body {
 }
 
 
+
 header {
     color: white;
     display: flex;
@@ -108,7 +109,7 @@ footer {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 2;
+  z-index: 1;
   border-radius: 5px;
 }
 
@@ -118,77 +119,15 @@ footer {
 
 /* ----------------FIXED HEADER CSS ABOVE------------------ */
 
-/* -----------------ABOUT PAGE CSS BELOW------------------- */
-
-main {
+h2 {
     font-family: 'Open Sans', sans-serif;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* move the box down to the center of the screen */
-    z-index: 1;
     position: absolute;
-    top: 50vh;
-    left: 35vw;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    /* rounded edges */
-
-    
-  }
-
-.about-section {
-    background-color: #f8f8f8;
-    padding: 50px 0;
-    border-radius: 15px;
-    z-index: 1;
-  }
-  
-  
-  .about-header h2 {
-    font-size: 35px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-    /* move the h1 up */
-    position: relative;
-    top: -45px;
-    /* move h2 to the right */
-    left: 20px;
-    z-index: 1;
-
-  }
-  
-  
-  .about-content {
-
-    width: 45vw;
-    margin: 0 auto;
-    padding: 0 20px;
-    z-index: 1;
-  }
-  
-  .about-content p {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #666;
-    margin-bottom: 20px;
-    /* move the p to the down */
-    position: relative;
-    top: 15px;
-    z-index: 1;
-
-  }
-
-  img{
-    display: block;
-    width: 21.5%;
-    height: 21.5%;
-
-    border-radius: 15px;
-    margin-left: 65%;
-    margin-top: 22vh;
-    z-index: -9999;
+    font-size: 40px;
+    text-align: center;
+    color: white;
   }
   
   

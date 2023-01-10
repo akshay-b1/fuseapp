@@ -56,6 +56,10 @@ def image2image():
 def prototyping():
     return render_template('prototyping.html')
 
+@app.route('/pdesign')
+def pdesign():
+    return render_template('pdesign.html')
+
 @app.route("/text2image")
 def text2image():
     word = request.args.get("word", "")
