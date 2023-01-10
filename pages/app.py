@@ -37,9 +37,6 @@ def FAQ():
 def about():
     return render_template('about.html')
 
-#@app.route('/contact')
-#def contact():
-    #return render_template('contact.html')
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -54,6 +51,10 @@ def market():
 @app.route('/picTo3D')
 def image2image():
     return render_template('picTo3D.html')
+
+@app.route('/prototyping')
+def prototyping():
+    return render_template('prototyping.html')
 
 @app.route("/text2image")
 def text2image():

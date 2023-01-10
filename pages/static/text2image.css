@@ -116,6 +116,17 @@ footer {
 }
 
 /* ----------------FIXED HEADER CSS ABOVE------------------ */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+label {
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
 
 input[type="text"]{
     width: 30%;
@@ -137,7 +148,7 @@ input[type="text"]:focus {
 
 
 
-button[type="submit"] {
+   input[type="submit"] {
     display: inline-block;
     border-radius: 7px;
     border: none;
@@ -154,14 +165,14 @@ button[type="submit"] {
     margin-top: 2em;
    }
    
-   button[type="submit"] span {
+   input[type="submit"] span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.4s;
    }
    
-   button[type="submit"] span:after {
+   input[type="submit"] span:after {
     content: 'for me!';
     position: absolute;
     opacity: 0;
@@ -170,11 +181,11 @@ button[type="submit"] {
     transition: 0.7s;
    }
    
-   button[type="submit"]:hover span {
+   input[type="submit"]:hover span {
     padding-right: 3.55em;
    }
    
-   button[type="submit"]:hover span:after {
+   input[type="submit"]:hover span:after {
     opacity: 4;
     right: 0;
    }
@@ -211,7 +222,7 @@ main{
     /* put the elements in the center of the page */
     position: absolute;
     top: 40%;
-    left: 50%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
     z-index: -1;
