@@ -88,6 +88,14 @@ footer {
     width: 100%;
 }
 
+#CreatorIcon {
+    position: absolute; /* Make the CreatorIcon a positioned element */
+    right: 0; /* Position the right side of the CreatorIcon at the right side of the screen */
+    bottom: 0; /* Position the bottom of the CreatorIcon at the bottom of the screen */
+    width: 6vw; /* Width of the image */
+    height: 6vh; /* Height of the image */
+  }
+
 h2 {
     font-size: 45px;
     font-family: 'Open Sans', sans-serif;
@@ -130,7 +138,7 @@ button{
     height: 100%;
     width: 0;
     border-radius: 15px;
-    background-color: rgb(71, 71, 132);
+    background-color: rgb(90, 90, 150);
     z-index: -1;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);

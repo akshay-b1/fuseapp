@@ -34,10 +34,7 @@
             <input type="text" name="word" id="word">
             <input type="submit" value="Create" style="vertical-align:middle"></input>
         </form>
-        {% if fileName %}
-            <p>Your file is ready for download:</p>
-            <a href="/download/{{ fileName }}" class="download-link">{{ fileName }}</a>
-        {% endif %}
+        <a href="{{ url_for('download_file', data=fileName[0], name=fileName[1]) }}" download>Download file</a>
     </main>
     <footer>
         <p>Copyright © 2023 - Fuse3D™</p>
