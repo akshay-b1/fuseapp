@@ -1,0 +1,18 @@
+flask
+Jinja2
+werkzeug
+numpy-stl
+flask-mail
+requests
+trimesh
+plotly
+openai
+torch
+psycopg2
+io
+os
+PIL
+tqdm
+json
+smtplib
+point-e --fix folders to have fuseapp inside of point-e
