@@ -9,10 +9,4 @@ plotly
 openai
 torch
 psycopg2
-io
-os
-PIL
 tqdm
-json
-smtplib
-point-e --fix folders to have fuseapp inside of point-e
