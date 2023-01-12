@@ -90,8 +90,8 @@ footer {
 
 #CreatorIcon {
     position: absolute; /* Make the CreatorIcon a positioned element */
-    right: 0; /* Position the right side of the CreatorIcon at the right side of the screen */
-    bottom: 0; /* Position the bottom of the CreatorIcon at the bottom of the screen */
+    right: 2%; /* Position the right side of the CreatorIcon at the right side of the screen */
+    bottom: 14%; /* Position the bottom of the CreatorIcon at the bottom of the screen */
     width: 6vw; /* Width of the image */
     height: 6vh; /* Height of the image */
   }

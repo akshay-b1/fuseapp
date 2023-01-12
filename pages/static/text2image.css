@@ -1,237 +1,523 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    height: 100%;
-    background-image: linear-gradient( 109.6deg,  rgba(218,185,252,1) 11.2%, rgba(125,89,252,1) 91.1% );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  height: 100%;
+  background-image: linear-gradient( 109.6deg,  rgba(218,185,252,1) 11.2%, rgba(125,89,252,1) 91.1% );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#CreatorIcon {
+  position: absolute; /* Make the CreatorIcon a positioned element */
+  right: 2%; /* Position the right side of the CreatorIcon at the right side of the screen */
+  bottom: 14%; /* Position the bottom of the CreatorIcon at the bottom of the screen */
+  width: 6vw; /* Width of the image */
+  height: 6vh; /* Height of the image */
 }
 
 header {
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
 
 }
 
 h1 {
-    font-size: 50px;
-    font-family: 'Arial', sans-serif;
-    /* move the h1 to the top left with even spaces on top and left */
-    position: absolute;
-    top: 0;
-    left: 2%;
+  font-size: 50px;
+  font-family: 'Arial', sans-serif;
+  /* move the h1 to the top left with even spaces on top and left */
+  position: absolute;
+  top: 0;
+  left: 2%;
 
-    /* make the letters overlap */
-    letter-spacing: -8px;
-    font-weight: 600px;
-    color: whitesmoke;
-    /* add a shadow on the word */
+  /* make the letters overlap */
+  letter-spacing: -8px;
+  font-weight: 600px;
+  color: whitesmoke;
+  /* add a shadow on the word */
 }
 
 nav ul {
-    list-style: none;
-    margin-right: 0;
-    padding: 0;
-    display: flex;
-    /* move the ul to the right */
-    position: fixed;
-    right: 0;
-    top: 2%;
-    right: 3%;
-    
+  list-style: none;
+  margin-right: 0;
+  padding: 0;
+  display: flex;
+  /* move the ul to the right */
+  position: fixed;
+  right: 0;
+  top: 2%;
+  right: 3%;
+  
 }
 
 nav li {
-    margin: 0 20px;
+  margin: 0 20px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+  color: white;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav a:hover {
-    color: #ccc;
+  color: #ccc;
 }
 
 
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
 }
 
 label {
-    margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 
 footer {
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-family: 'Montserrat', sans-serif;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-  
-  .dropdown-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .services-menu-item {
-    position: relative;
-  }
-  
- .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  z-index: 1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.services-menu-item {
+  position: relative;
+}
+
+.dropdown-menu {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background-color: #f9f9f9;
+min-width: 160px;
+z-index: 1;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+border-radius: 5px;
 }
 
 .services-menu-item:hover .dropdown-menu {
-  display: block;
+display: block;
 }
 
 /* ----------------FIXED HEADER CSS ABOVE------------------ */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
 }
 
 label {
-    margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+  margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 input[type="text"]{
-    width: 30%;
-    border: none;
-    padding: 1rem;
-    border-radius: 1rem;
-    background: #e8e8e8;
-    box-shadow: 12px 13px 31px -10px rgba(0,0,0,0.27);
-    transition: 0.3s;
+  width: 30%;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #e8e8e8;
+  box-shadow: 12px 13px 31px -10px rgba(0,0,0,0.27);
+  transition: 0.3s;
 
 }
 input[type="text"]:focus {
-    outline-color: #e8e8e8;
-    background: #e8e8e8;
-    box-shadow: inset 20px 20px 60px #c5c5c5,
-    inset -20px -20px 60px #ffffff;
-    transition: 0.3s;
-   }
+  outline-color: #e8e8e8;
+  background: #e8e8e8;
+  box-shadow: inset 20px 20px 60px #c5c5c5,
+  inset -20px -20px 60px #ffffff;
+  transition: 0.3s;
+ }
 
 
 
-   input[type="submit"] {
-    display: inline-block;
-    border-radius: 7px;
-    border: none;
-    background: rgba(125,89,252,1);
-    color: white;
-    font-family: inherit;
-    text-align: center;
-    font-size: 13px;
-    box-shadow: 0px 14px 56px -11px rgba(125,89,252,1);
-    width: 10em;
-    padding: 1em;
-    transition: all 0.4s;
-    cursor: pointer;
-    margin-top: 2em;
-   }
-   
-   input[type="submit"] span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.4s;
-   }
-   
-   input[type="submit"] span:after {
-    content: 'for me!';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.7s;
-   }
-   
-   input[type="submit"]:hover span {
-    padding-right: 3.55em;
-   }
-   
-   input[type="submit"]:hover span:after {
-    opacity: 4;
-    right: 0;
-   }
+ input[type="submit"] {
+  display: inline-block;
+  border-radius: 7px;
+  border: none;
+  background: rgba(125,89,252,1);
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 14px 56px -11px rgba(125,89,252,1);
+  width: 10em;
+  padding: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin-top: 2em;
+ }
+ 
+ input[type="submit"] span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.4s;
+ }
+ 
+ input[type="submit"] span:after {
+  content: 'for me!';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.7s;
+ }
+ 
+ input[type="submit"]:hover span {
+  padding-right: 3.55em;
+ }
+ 
+ input[type="submit"]:hover span:after {
+  opacity: 4;
+  right: 0;
+ }
 
 .download-link {
-    color: #0066cc;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+  color: #0066cc;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .download-link:hover {
-    color: #0099ff;
+  color: #0099ff;
 }
 
 
 
 
 .download-link {
-    color: #0066cc;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+  color: #0066cc;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .download-link:hover {
-    color: #0099ff;
+  color: #0099ff;
 }
 
 main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    /* put the elements in the center of the page */
-    position: absolute;
-    top: 40%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* put the elements in the center of the page */
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  z-index: -1;
 
 }
 
 h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 30px;
-    text-align: center;
-    color: whitesmoke;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.button {
+  --default: rgba(255, 255, 255, 0.2);
+  top: 20px;
+  --active: #fff;
+  position: relative;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transform: scale(var(--s, 1));
+  transition: transform 0.2s;
+}
+.button:active {
+  --s: 0.96;
+}
+.button svg {
+  display: block;
+  fill: none;
+  stroke-width: var(--sw, 3px);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.button .circle {
+  width: 65px;
+  height: 65px;
+  transform: rotate(-90deg);
+}
+.button .circle circle.default {
+  stroke: var(--default);
+}
+.button .circle circle.active {
+  stroke: var(--active);
+  stroke-dasharray: 227px;
+  stroke-dashoffset: var(--active-offset, 227px);
+  transition: stroke-dashoffset var(--all-transition, 4s) ease var(--all-delay, 0.8s);
+}
+.button span {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  bottom: 13px;
+  font-weight: 500;
+  font-size: 10px;
+  color: var(--active);
+  opacity: var(--count-opacity, 0);
+  transform: translateY(var(--count-y, 4px));
+  -webkit-animation: var(--count, none) 0.3s ease forwards var(--all-delay, 4.6s);
+          animation: var(--count, none) 0.3s ease forwards var(--all-delay, 4.6s);
+  transition: opacity 0.2s ease 0.6s, transform 0.3s ease 0.6s;
+}
+.button .icon {
+  --sw: 2px;
+  width: 24px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -12px;
+}
+.button .icon svg.line {
+  width: 4px;
+  height: 37px;
+  stroke: var(--active);
+  position: absolute;
+  left: 10px;
+  top: 0;
+  stroke-dasharray: 0 33px var(--line-array, 33px) 66px;
+  stroke-dashoffset: var(--line-offset, 33px);
+  transform: translateY(var(--line-y, 0));
+  opacity: var(--line-opacity, 1);
+  transition: stroke-dasharray 0.2s, stroke-dashoffset 0.2s, transform 0.32s ease var(--all-delay, 0.25s);
+}
+.button .icon div {
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  bottom: 1px;
+  margin-left: -20px;
+  transform: translate(var(--icon-x, 0), var(--icon-y, 0));
+  transition: transform 0.3s ease var(--all-delay, 4.8s);
+  -webkit-animation: var(--overflow, none) 0s linear forwards var(--all-delay, 4.8s);
+          animation: var(--overflow, none) 0s linear forwards var(--all-delay, 4.8s);
+}
+.button .icon div:before, .button .icon div:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  height: 2px;
+  left: var(--l, 0);
+  top: 15px;
+  width: var(--w, 16px);
+  background: var(--active);
+  border-radius: 1px;
+  transform-origin: var(--tx, 15px) 1px;
+  transform: rotate(var(--before-rotate, 0deg));
+  opacity: var(--tick-opacity, 0);
+  transition: transform 0.4s ease var(--all-delay, 4.8s), opacity 0s linear var(--all-delay, 4.8s);
+}
+.button .icon div:after {
+  --l: 14px;
+  --w: 26px;
+  --tx: 1px;
+  transform: rotate(var(--after-rotate, 0deg));
+}
+.button .icon div svg {
+  stroke: var(--active);
+}
+.button .icon div svg.arrow {
+  width: 40px;
+  height: 32px;
+  opacity: var(--arrow-opacity, 1);
+  transition: opacity 0s linear var(--all-delay, 1s);
+}
+.button .icon div svg.progress {
+  width: 444px;
+  height: 10px;
+  position: absolute;
+  left: 0;
+  top: 11px;
+  transform: translateX(var(--progress-x, 0));
+  opacity: var(--progress-opacity, 0);
+  transition: transform var(--all-transition, 4.4s) ease var(--all-delay, 0.4s), opacity 0s linear var(--all-delay, 1s);
+  -webkit-animation: var(--hide, none) 0s linear forwards var(--all-delay, 4.8s);
+          animation: var(--hide, none) 0s linear forwards var(--all-delay, 4.8s);
+}
+.button.loading:not(.reset) {
+  --line-y: -36px;
+  --line-array: 0;
+  --line-offset: 15px;
+  --active-offset: 0;
+  --arrow-opacity: 0;
+  --progress-opacity: 1;
+  --progress-x: -400px;
+  --tick-opacity: 1;
+  --before-rotate: 47deg;
+  --after-rotate: -46deg;
+  --hide: hide;
+  --overflow: overflow;
+  --icon-x: 2px;
+  --icon-y: 7px;
+  --count-opacity: 1;
+  --count-y: 0;
+  --count: count;
+}
+.button.reset {
+  --all-delay: 0s;
+  --all-transition: 0.3s;
+}
+
+@-webkit-keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes count {
+  to {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+}
+@keyframes count {
+  to {
+    transform: translateY(4px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes overflow {
+  to {
+    overflow: visible;
+  }
+}
+@keyframes overflow {
+  to {
+    overflow: visible;
+  }
+}
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/*# write the rest of the css for these 
+
+<div id="renderArea"></div>
+
+    <div class="modal" id="openModal" style="display: none">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>Open GCode</h3>
+      </div>
+      <div class="modal-body">
+        <p>To view your own model, drag a gcode file from your desktop and drop it in this window.</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal">Cancel</a>
+      </div>
+    </div>  #*/
+
+.renderArea {
+  width: 20%;
+  height: 20%;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+  z-index: 200000001;
+  top: 50%;
+  left: 50%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 20%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: none;
+  z-index: 200000000;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+  background-color: #f3f3f3;
+  z-index: 200000000;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-body {
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  z-index: 200000000;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-footer {
+  padding: 10px 20px;
+  border-top: 1px solid #eee;
+  text-align: right;
+  background-color: #f3f3f3;
+  z-index: 200000000;
+  top: 50%;
+  left: 50%;
+}
+
+.chart {
+  top: 35vh;
+  left: 65vw;
+  position: absolute;
 }

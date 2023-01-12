@@ -48,6 +48,9 @@ def home():
 def market():
     return render_template('market.html')
 
+@app.route('/creators')
+def creators():
+    return render_template('creators.html')
 
 
 @app.route('/prototyping')
@@ -57,7 +60,22 @@ def prototyping():
 @app.route('/pdesign')
 def pdesign():
     return render_template('pdesign.html')
-    
+
+from flask import send_file
+import io
+from flask import send_from_directory
+@app.route('/picTo3D/download', methods=['POST'])
+def download_file2():
+
+    data = request.form['data']
+    data = bytes(data, encoding='utf-8')
+    name = request.form['name']
+    print("inside")
+
+    response = send_file(io.BytesIO(data), download_name=name + '.stl', as_attachment=True, mimetype='model/stl')
+    print(response)
+    return response
+   
 from werkzeug.utils import secure_filename
 @app.route('/picTo3D', methods=['POST','GET'])
 def image2image():
@@ -71,7 +89,50 @@ def image2image():
         fileName = file_from2(files, name)
     else:
         fileName = ""
-    return render_template('picTo3D.html', fileName=fileName)
+    if fileName:
+        data = fileName[0]
+        name = fileName[1]
+        pc = fileName[2]
+    else:
+        data = ""
+        name = ""
+        pc = ""
+    if pc:
+        import plotly.graph_objects as go
+        import json
+        import plotly
+        fig_plotly = go.Figure(
+                data=[
+                    go.Scatter3d(
+                        x=pc.coords[:,0], y=pc.coords[:,1], z=pc.coords[:,2], 
+                        mode='markers',
+                        marker=dict(
+                        size=2,
+                        color=['rgb({},{},{})'.format(r,g,b) for r,g,b in zip(pc.channels["R"], pc.channels["G"], pc.channels["B"])],
+                    )
+                    )
+                ],
+                layout=dict(
+                    scene=dict(
+                        xaxis=dict(visible=False),
+                        yaxis=dict(visible=False),
+                        zaxis=dict(visible=False)
+                    ), width= 250, height = 250,
+                ),
+            )
+        fig_plotly.update_layout(margin=dict(
+        l=1,
+        r=1,
+        b=1,
+        t=1,
+        pad=4
+    ))
+        #print(pc)
+        graphJSON = json.dumps(fig_plotly, cls=plotly.utils.PlotlyJSONEncoder)
+        #print(graphJSON)
+    else:
+        graphJSON = ""
+    return render_template('picTo3D.html', data = data, name = name, graphJSON = graphJSON)
 
 def file_from2(files, name):
     try:
@@ -82,7 +143,6 @@ def file_from2(files, name):
             end = name
         ind = end.index(".")
         word = "img" + end[:ind]
-        import cockroachdb
         import psycopg2
         import io
 
@@ -183,8 +243,6 @@ def file_from2(files, name):
             guidance_scale=[3.0, 3.0],
         )   
 
-        import sys
-
         # Read the first command-line argument
         #prompt = file
 
@@ -215,8 +273,6 @@ def file_from2(files, name):
 
         print('loading SDF model...')
         model.load_state_dict(load_checkpoint(name, device))
-
-        import skimage.measure as measure
 
         # Produce a mesh (with vertex colors)
         mesh = marching_cubes_mesh(
@@ -281,15 +337,6 @@ def file_from2(files, name):
         conn.commit()
 
         import os
-        """ from pathlib import Path
-        downloads_path = str(Path.home() / "Downloads") """
-
-        downloads_folder = os.path.join(os.path.expanduser('~'), 'Downloads')
-
-        file_path = os.path.join(downloads_folder, realPrompt + '.stl')
-
-        #with open(file_path, 'wb') as f:
-            #f.write(binary_data)
 
         import numpy as np
         import stl
@@ -343,23 +390,36 @@ def file_from2(files, name):
         # Delete the temporary file
         import os
         os.unlink(stl_file)
-        return binary_data
+        return binary_data, realPrompt, pc
     except ValueError:
         return "invalid input"
 
 
 from flask import send_file
-realBinaryData = b""
-realPrompt2 = ""
-@app.route('/text2image/download/')
-def download_file(data, name):
-    #print(realPrompt2)
-    #print(realBinaryData)
-    # binary_data contains the binary data for the file you want to download
-    print(data)
-    print(name)
-    response = send_file(data, attachment_filename=name + '.stl', as_attachment=True)
+import io
+from flask import send_from_directory
+@app.route('/text2image/download', methods=['POST'])
+def download_file():
+
+    data = request.form['data']
+    data = bytes(data, encoding='utf-8')
+    name = request.form['name']
+    print("inside")
+
+    response = send_file(io.BytesIO(data), download_name=name + '.stl', as_attachment=True, mimetype='model/stl')
+    print(response)
+
     return response
+   
+@app.route("/interpreter")
+def interpreter():
+    return render_template("interpreter.html") 
+
+@app.route("/viewer")
+def viewer():
+    return render_template("viewer.html") 
+    
+import base64
 
 @app.route("/text2image")
 def text2image():
@@ -368,21 +428,55 @@ def text2image():
         fileName = file_from(word)
     else:
         fileName = ""
-    return render_template('text2image.html', fileName=fileName)
-"""@app.route("/text2image?word=<word>")
-def future():
-    word = request.args.get("word", "")
-    if word:
-        fileName = file_from(word)
+    if fileName:
+        data = fileName[0]
+        name = fileName[1]
+        pc = fileName[2]
     else:
-        fileName = ""
-    return render_template('text2image.html', fileName=fileName)"""
+        data = ""
+        name = ""
+        pc = ""
+    if pc:
+        import plotly.graph_objects as go
+        import json
+        import plotly
+        fig_plotly = go.Figure(
+                data=[
+                    go.Scatter3d(
+                        x=pc.coords[:,0], y=pc.coords[:,1], z=pc.coords[:,2], 
+                        mode='markers',
+                        marker=dict(
+                        size=2,
+                        color=['rgb({},{},{})'.format(r,g,b) for r,g,b in zip(pc.channels["R"], pc.channels["G"], pc.channels["B"])],
+                    )
+                    )
+                ],
+                layout=dict(
+                    scene=dict(
+                        xaxis=dict(visible=False),
+                        yaxis=dict(visible=False),
+                        zaxis=dict(visible=False)
+                    ), width= 250, height = 250,
+                ),
+            )
+        fig_plotly.update_layout(margin=dict(
+        l=1,
+        r=1,
+        b=1,
+        t=1,
+        pad=4
+    ))
+        #print(pc)
+        graphJSON = json.dumps(fig_plotly, cls=plotly.utils.PlotlyJSONEncoder)
+        #print(graphJSON)
+    else:
+        graphJSON = ""
 
+    return render_template("text2image.html", data = data, name = name, graphJSON = graphJSON)
 
 def file_from(word):
     """Convert Celsius to Fahrenheit degrees."""
     try:
-        import cockroachdb
         import psycopg2
         import io
 
@@ -420,14 +514,26 @@ def file_from(word):
             cursor.execute(query)
         else:
             enteredAgain = False
+            numDigits = 1
             for i in temp:
                 war = i[1]
-                if war[:len(i[1])-1] == word:
+                if war[:len(war)-1] == word:
+                    numDigits = 1
+                elif war[:len(war)-2] == word:
+                    numDigits = 2
+                elif war[:len(war)-3] == word:
+                    numDigits = 3
+                elif war[:len(war)-4] == word:
+                    numDigits = 4
+            # test10 
+            for i in temp:
+                war = i[1]
+                if war[:len(war)-numDigits] == word:
                     enteredAgain = True
                     name = i[1]
                     print(name)
             if enteredAgain:
-                word = word+str(int(name[-1])+1)
+                word = word+str(int(name[-numDigits:])+1)
                 query = f"INSERT INTO words (word) VALUES ('{word}')"
                 # Execute the search query
                 cursor = conn.cursor()
@@ -486,7 +592,6 @@ def file_from(word):
             model_kwargs_key_filter=('texts', ''), # Do not condition the upsampler at all
         )
 
-        import sys
 
         # Read the first command-line argument
         prompt = word
@@ -518,8 +623,6 @@ def file_from(word):
 
         print('loading SDF model...')
         model.load_state_dict(load_checkpoint(name, device))
-
-        import skimage.measure as measure
 
         # Produce a mesh (with vertex colors)
         mesh = marching_cubes_mesh(
@@ -584,15 +687,6 @@ def file_from(word):
         conn.commit()
 
         import os
-        """ from pathlib import Path
-        downloads_path = str(Path.home() / "Downloads") """
-
-        downloads_folder = os.path.join(os.path.expanduser('~'), 'Downloads')
-
-        file_path = os.path.join(downloads_folder, realPrompt + '.stl')
-
-        with open(file_path, 'wb') as f:
-            f.write(binary_data)
 
         import numpy as np
         import stl
@@ -648,7 +742,7 @@ def file_from(word):
         os.unlink(stl_file)
         #realBinaryData = binary_data
         #realPrompt2 = realPrompt
-        return binary_data, realPrompt
+        return binary_data, realPrompt, pc
 
 
 
