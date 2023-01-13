@@ -8,5 +8,4 @@ trimesh
 plotly
 openai
 torch
-psycopg2
 tqdm
