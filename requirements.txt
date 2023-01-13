@@ -1,4 +1,3 @@
-flask
 Jinja2
 werkzeug
 numpy-stl
