@@ -8,3 +8,6 @@ plotly
 openai
 torch
 tqdm
+Flask-Cache
+Flask-DebugToolbar
+Flask-WTF

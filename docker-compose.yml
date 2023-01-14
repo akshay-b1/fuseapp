@@ -1,0 +1,12 @@
+version: '3'
+
+services: 
+  web:
+    build: .
+    command: flask run
+    volumes:
+      - ./pages
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: app.py
